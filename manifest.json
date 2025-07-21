@@ -1,13 +1,12 @@
 {
-  "name": "Agenda Diaria",
+  "name": "Agenda de Actividades",
   "short_name": "Agenda",
-  "description": "Una aplicación de agenda con calendario, tareas, exportación y modo offline.",
+  "lang": "es",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#1e1e1e",
-  "theme_color": "#4CAF50",
+  "background_color": "#f4f4f7",
+  "theme_color": "#9b59b6",
   "orientation": "portrait",
-  "lang": "es",
   "icons": [
     {
       "src": "icon-192.png",
