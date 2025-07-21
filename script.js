@@ -39,7 +39,7 @@ navigator.serviceWorker?.register("service-worker.js");
 function renderCalendar() {
   const weekdays = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
   document.getElementById("calendar-weekdays").innerHTML = weekdays
-  .map(d => `<div class="weekday">${d}</div>`).join('');
+    .map(d => `<div class="weekday">${d}</div>`).join('');
 
   calendarDays.innerHTML = "";
   const year = selectedDate.getFullYear();
@@ -69,27 +69,28 @@ function renderCalendar() {
     if (thisDate.toDateString() === today.toDateString()) div.classList.add("today");
     if (thisDate.toDateString() === selectedDate.toDateString()) div.classList.add("selected");
 
+    div.innerHTML = `${day}`; // Muestra el número del día
+
     if (taskCount > 0) {
-      const taskIndicator = document.createElement("div");
-      taskIndicator.className = "task-count";
-      taskIndicator.textContent = taskCount;
+      let colorClass = "";
+      if (taskCount < 3) colorClass = "green";
+      else if (taskCount < 5) colorClass = "orange";
+      else colorClass = "red";
 
-      if (taskCount < 3) div.classList.add("green");
-      else if (taskCount < 5) div.classList.add("orange");
-      else div.classList.add("red");
-
-      div.appendChild(taskIndicator);
+      div.classList.add(colorClass);
+      div.innerHTML += `<div class="task-count">${taskCount}</div>`;
     }
 
-    div.textContent = day;
     div.onclick = () => {
       selectedDate = thisDate;
       renderCalendar();
       renderTasks();
     };
+
     calendarDays.appendChild(div);
   }
 }
+
 
 function renderTasks() {
   const key = selectedDate.toISOString().split("T")[0];
