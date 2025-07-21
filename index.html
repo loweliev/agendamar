@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icon-192.png" />
+  <title>Agenda Diaria</title>
+</head>
+<body>
+  <header>
+    <h1>🗓️ Mi Agenda-Maren</h1>
+  </header>
+
+  <main>
+    <section id="calendar-view">
+      <h2>Calendario</h2>
+      <div id="calendar"></div>
+    </section>
+
+    <section id="tasks-view" class="hidden">
+      <button id="back-button">⬅ Volver</button>
+      <h2 id="selected-date-title"></h2>
+      <ul id="task-list"></ul>
+
+      <form id="task-form">
+        <input type="text" id="task-input" placeholder="Nueva actividad..." required />
+        <button type="submit">Agregar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hecho por Marcio 🛠️</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --primary: #03dac6;
+  --text: #ffffff;
+  --text-secondary: #aaaaaa;
+  --danger: #f44336;
+  --completed: #4caf50;
+  --border: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--surface);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+footer {
+  background-color: var(--surface);
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.calendar-day {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.calendar-day:hover {
+  background-color: var(--primary);
+  color: #000;
+}
+
+.calendar-day .activity-count {
+  font-size: 0.8rem;
+  color: var(--primary);
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+}
+
+#tasks-view {
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#back-button {
+  background: none;
+  color: var(--primary);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+#task-list {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.task-item {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  background-color: #2a2a2a;
+  border-color: var(--completed);
+}
+
+.task-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  color: var(--primary);
+}
+
+.task-buttons button.delete {
+  color: var(--danger);
+}
+
+#task-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#task-input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+#task-form button {
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #000;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #calendar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
