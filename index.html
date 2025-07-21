@@ -3,57 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda de Actividades</title>
+  <meta name="theme-color" content="#9b59b6" />
   <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="icon-192.png" />
-  <meta name="theme-color" content="#03dac6" />
-  <!-- Librerías externas -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <title>Agenda de Actividades</title>
 </head>
 <body>
   <header>
-    <h1>📆 Agenda de Actividades - Maren</h1>
-    <button id="toggle-theme">🌓 Tema</button>
+    <h1>📅 Agenda de Actividades</h1>
+    <button id="toggle-theme">🌙 Cambiar tema</button>
   </header>
 
-  <main class="container">
-    <!-- SECCIÓN CALENDARIO -->
-    <section class="calendar-section">
-      <div class="calendar-header">
-        <button id="prev-month">←</button>
-        <h2 id="month-year">Mes Año</h2>
-        <button id="next-month">→</button>
+  <main>
+    <section id="calendar-container">
+      <div id="calendar-header">
+        <button id="prev-month">◀</button>
+        <h2 id="month-year"></h2>
+        <button id="next-month">▶</button>
       </div>
-      <div id="calendar" class="calendar-grid"></div>
+      <div id="calendar-weekdays"></div>
+      <div id="calendar-days"></div>
+
     </section>
 
-    <!-- SECCIÓN TAREAS -->
-    <section class="task-section">
-      <h3 id="selected-date-title">📅 Selecciona un día</h3>
-      <form id="task-form">
-        <input type="text" id="task-input" placeholder="Nueva actividad..." required />
-        <button type="submit">Agregar</button>
-      </form>
+    <section id="tasks-section">
+      <h3 id="selected-date"></h3>
+      <div id="task-controls">
+        <input type="text" id="task-text" placeholder="Nueva tarea..." />
+        <input type="text" id="task-desc" placeholder="Descripción (opcional)" />
+        <button id="add-task">➕ Agregar</button>
+      </div>
+      <input type="text" id="search-task" placeholder="🔎 Buscar tarea..." />
+      <div id="task-stats"></div>
       <ul id="task-list"></ul>
-      <div class="task-actions">
+
+      <div id="task-buttons">
         <button id="export-pdf">📄 Exportar PDF</button>
         <button id="export-excel">📊 Exportar Excel</button>
-        <button id="enable-notifications">🔔 Notificar Hoy</button>
+        <button id="save-json">💾 Respaldar JSON</button>
+        <input type="file" id="load-json" />
       </div>
     </section>
   </main>
 
-  <div id="toast-container"></div>
+  <!-- Modal de edición -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <h3>Editar tarea</h3>
+      <input type="text" id="edit-text" />
+      <textarea id="edit-desc"></textarea>
+      <button id="save-edit">💾 Guardar</button>
+      <button id="cancel-edit">❌ Cancelar</button>
+    </div>
+  </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('✅ Service Worker registrado'))
-        .catch(err => console.error('❌ Error al registrar SW:', err));
-    }
-  </script>
 </body>
 </html>
