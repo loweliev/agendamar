@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda de Actividades-Maren</title>
+  <title>Agenda de Actividades</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="icon-192.png" />
@@ -13,9 +13,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-
   <header>
-    <h1>📆 Agenda de Actividades-Maren</h1>
+    <h1>📆 Agenda de Actividades - Maren</h1>
     <button id="toggle-theme">🌓 Tema</button>
   </header>
 
@@ -33,14 +32,11 @@
     <!-- SECCIÓN TAREAS -->
     <section class="task-section">
       <h3 id="selected-date-title">📅 Selecciona un día</h3>
-      
       <form id="task-form">
         <input type="text" id="task-input" placeholder="Nueva actividad..." required />
         <button type="submit">Agregar</button>
       </form>
-
       <ul id="task-list"></ul>
-
       <div class="task-actions">
         <button id="export-pdf">📄 Exportar PDF</button>
         <button id="export-excel">📊 Exportar Excel</button>
@@ -49,7 +45,6 @@
     </section>
   </main>
 
-  <!-- Mensajes flotantes -->
   <div id="toast-container"></div>
 
   <script src="script.js"></script>
