@@ -2,7 +2,7 @@
   "name": "Agenda Diaria",
   "short_name": "Agenda",
   "description": "Una aplicación de agenda con calendario, tareas, exportación y modo offline.",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#1e1e1e",
   "theme_color": "#4CAF50",
