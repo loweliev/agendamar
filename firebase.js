@@ -13,13 +13,13 @@ import {
 
 // ✅ Reemplaza esto con tu configuración real
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_DOMINIO.firebaseapp.com",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_PROJECT_ID.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID",
-  databaseURL: "https://TU_PROJECT_ID-default-rtdb.firebaseio.com",
+apiKey: "AIzaSyD_TH5CFzXrAHWUffsjy6IHe5AexSw1fcg",
+  authDomain: "agenda-mya.firebaseapp.com",
+  databaseURL: "https://agenda-mya-default-rtdb.firebaseio.com",
+  projectId: "agenda-mya",
+  storageBucket: "agenda-mya.firebasestorage.app",
+  messagingSenderId: "640452417589",
+  appId: "1:640452417589:web:10135d2a635afb1713397c"
 };
 
 const app = initializeApp(firebaseConfig);
