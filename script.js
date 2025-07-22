@@ -1,7 +1,10 @@
 // Variables globales
 let selectedDate = new Date();
-let tasks = JSON.parse(localStorage.getItem('tasks') || '{}');
+let tasks = {};
 let editingTaskId = null;
+
+// Firebase
+import { db, ref, get, set, push, update, remove, onValue } from './firebase.js';
 
 // Referencias al DOM
 const monthYear = document.getElementById("month-year");
@@ -23,17 +26,33 @@ document.getElementById("save-json").onclick = saveJSON;
 document.getElementById("load-json").onchange = loadJSON;
 document.getElementById("toggle-theme").onclick = toggleTheme;
 searchTask.oninput = renderTasks;
-
 document.getElementById("save-edit").onclick = saveEdit;
 document.getElementById("cancel-edit").onclick = () => {
   document.getElementById("edit-modal").style.display = "none";
 };
 
 initTheme();
-renderCalendar();
-renderTasks();
 requestNotificationPermission();
 navigator.serviceWorker?.register("service-worker.js");
+
+// ======================= FIREBASE ========================
+function loadTasksFromFirebase() {
+  const tasksRef = ref(db, 'tasks');
+  onValue(tasksRef, (snapshot) => {
+    tasks = snapshot.val() || {};
+    renderCalendar();
+    renderTasks();
+  });
+}
+loadTasksFromFirebase();
+
+function saveTasks() {
+  set(ref(db, 'tasks'), tasks);
+}
+
+function getDateKey(date = selectedDate) {
+  return date.toISOString().split("T")[0];
+}
 
 // Funciones principales
 function renderCalendar() {
