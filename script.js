@@ -63,11 +63,17 @@ function addTask() {
 
   const key = getDateKey();
   const newTask = { text, desc, done: false };
-  push(ref(db, `tasks/${key}`), newTask);
+
+  console.log("🔄 Enviando tarea a Firebase:", key, newTask); // Agregado
+
+  push(ref(db, `tasks/${key}`), newTask)
+    .then(() => console.log("✅ Tarea guardada en Firebase"))
+    .catch((err) => console.error("❌ Error al guardar tarea:", err));
 
   taskText.value = "";
   taskDesc.value = "";
 }
+
 
 function deleteTask(taskId) {
   const key = getDateKey();
