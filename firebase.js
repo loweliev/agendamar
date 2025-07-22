@@ -8,17 +8,18 @@ import {
   push,
   update,
   remove,
-  onValue
+  onValue,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+// 🔁 REEMPLAZA ESTOS DATOS CON TU CONFIGURACIÓN PERSONAL DE FIREBASE
 const firebaseConfig = {
-  apiKey: "AIzaSyD_TH5CFzXrAHWUffsjy6IHe5AexSw1fcg",
-  authDomain: "agenda-mya.firebaseapp.com",
-  databaseURL: "https://agenda-mya-default-rtdb.firebaseio.com",
-  projectId: "agenda-mya",
-  storageBucket: "agenda-mya.appspot.com",
-  messagingSenderId: "640452417589",
-  appId: "1:640452417589:web:10135d2a635afb1713397c"
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_DOMINIO.firebaseapp.com",
+  projectId: "TU_PROJECT_ID",
+  storageBucket: "TU_PROJECT_ID.appspot.com",
+  messagingSenderId: "TU_SENDER_ID",
+  appId: "TU_APP_ID",
+  databaseURL: "https://TU_PROJECT_ID-default-rtdb.firebaseio.com",
 };
 
 const app = initializeApp(firebaseConfig);
