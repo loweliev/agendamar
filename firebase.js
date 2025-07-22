@@ -26,3 +26,5 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 export { db, ref, get, set, push, update, remove, onValue };
+
+console.log("✅ Firebase configurado correctamente");
