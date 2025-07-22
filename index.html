@@ -24,17 +24,23 @@
       </div>
       <div id="calendar-weekdays"></div>
       <div id="calendar-days"></div>
-
     </section>
 
     <section id="tasks-section">
       <h3 id="selected-date"></h3>
       <div id="task-controls">
-        <input type="text" id="task-text" placeholder="Nueva tarea..." />
-        <input type="text" id="task-desc" placeholder="Descripción (opcional)" />
+        <label for="task-text" class="sr-only">Tarea</label>
+        <input type="text" id="task-text" name="task-text" placeholder="Nueva tarea..." />
+
+        <label for="task-desc" class="sr-only">Descripción</label>
+        <input type="text" id="task-desc" name="task-desc" placeholder="Descripción (opcional)" />
+
         <button id="add-task">➕ Agregar</button>
       </div>
-      <input type="text" id="search-task" placeholder="🔎 Buscar tarea..." />
+
+      <label for="search-task" class="sr-only">Buscar tarea</label>
+      <input type="text" id="search-task" name="search-task" placeholder="🔎 Buscar tarea..." />
+
       <div id="task-stats"></div>
       <ul id="task-list"></ul>
 
@@ -42,7 +48,9 @@
         <button id="export-pdf">📄 Exportar PDF</button>
         <button id="export-excel">📊 Exportar Excel</button>
         <button id="save-json">💾 Respaldar JSON</button>
-        <input type="file" id="load-json" />
+        
+        <label for="load-json" class="sr-only">Cargar JSON</label>
+        <input type="file" id="load-json" name="load-json" />
       </div>
     </section>
   </main>
@@ -51,8 +59,13 @@
   <div id="edit-modal" class="modal">
     <div class="modal-content">
       <h3>Editar tarea</h3>
-      <input type="text" id="edit-text" />
-      <textarea id="edit-desc"></textarea>
+      
+      <label for="edit-text" class="sr-only">Editar texto</label>
+      <input type="text" id="edit-text" name="edit-text" />
+
+      <label for="edit-desc" class="sr-only">Editar descripción</label>
+      <textarea id="edit-desc" name="edit-desc"></textarea>
+
       <button id="save-edit">💾 Guardar</button>
       <button id="cancel-edit">❌ Cancelar</button>
     </div>
