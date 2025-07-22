@@ -17,7 +17,7 @@ apiKey: "AIzaSyD_TH5CFzXrAHWUffsjy6IHe5AexSw1fcg",
   authDomain: "agenda-mya.firebaseapp.com",
   databaseURL: "https://agenda-mya-default-rtdb.firebaseio.com",
   projectId: "agenda-mya",
-  storageBucket: "agenda-mya.firebasestorage.app",
+  storageBucket: "agenda-mya.appspot.com",
   messagingSenderId: "640452417589",
   appId: "1:640452417589:web:10135d2a635afb1713397c"
 };
