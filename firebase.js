@@ -11,7 +11,7 @@ import {
   onValue,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-// 🔁 REEMPLAZA ESTOS DATOS CON TU CONFIGURACIÓN PERSONAL DE FIREBASE
+// ✅ Reemplaza esto con tu configuración real
 const firebaseConfig = {
   apiKey: "TU_API_KEY",
   authDomain: "TU_DOMINIO.firebaseapp.com",
